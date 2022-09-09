@@ -15,6 +15,7 @@ header{
     color: #1d3557;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+    animation: updown 1000ms;
 }
 
 nav {
@@ -32,6 +33,7 @@ nav {
     /* align-items: baseline; */
     /* align-content: center; */
     top:0;
+    animation: leftright 1000ms;
 }
 
 nav a{
@@ -63,33 +65,34 @@ section{
     border-radius: 10px;
     box-shadow: 10px 10px 2px rgb(176,224,230, .6);
     margin: 50px;
+    animation:downup 1000ms;
 }
 
-.text{
+.container-text{
     text-align: justify;
     text-indent: 30px;
     line-height: 2;
 }
-.text p::selection{
+.container-text p::selection{
 color: #2a9d8f;
 background-color: #1d3557;
 }
 
-.contenedor{
+.container-form{
     margin: 50px auto;
     padding: 20px;
 }
 
-.contenedor legend{
+.container-form legend{
     margin: 30px;
     padding: 0;
     font-size: 20px;
 }
 
-.contenedor .elemento label{
+.container-form .elemento label{
     color: #1d3557;
 }
-.contenedor .elemento input{
+.container-form .elemento input{
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -99,21 +102,12 @@ background-color: #1d3557;
     letter-spacing: 5px;
     text-transform: uppercase;
     text-align: center;
-}
-
-.contenedor .elemento input[type="submit"]{
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
 }
 
-.contenedor .elemento input[type="reset"]{
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;  
-}
-
-.contenedor .elemento textarea{
+.container-form .elemento textarea{
     border-radius: 10px;
     width: 100%;
 }
@@ -125,7 +119,66 @@ background-color: #1d3557;
 footer{
     padding: 1px;
     text-align: center;
+    font-size: 1em;
 }
 footer a{
     text-decoration: none;
+}
+/*-----------------------------------(>375px)--------------------------------------*/
+@media only screen and (min-width: 376px) {
+    nav{
+        flex-direction: column;
+        position: static;
+        margin: 35px 50px 0.2px 35px ;
+        }
+
+    header{
+        font-size: .8em;
+        text-align: center;
+        padding-right: 20px;
+    }
+    
+    section{
+        padding: 5px;
+        margin:25px 50px 37px 35px;
+    }
+        
+    .container-form legend{
+       font-size: 0.9em;
+       text-align: left;
+    }
+    fieldset{
+        display: flex;
+        flex-direction: column;
+        padding: .1px;
+        margin: 3px;
+    }
+    .elemento{
+        margin-right: 15px;
+        margin-left: 8px;
+    }
+    .container-form{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .container-form .elemento input{
+        padding: 5px;
+        
+    }
+    footer{
+        font-size: 0.8em;
+    }
+}
+/*-------------------------------Animations---------------------------------*/
+@keyframes updown{
+    0%{transform: translateY(-500px);}
+    100%{transform: translateY(0px);}
+}
+@keyframes downup{
+    0%{transform: translateY(500px)}
+    100%{transform: translateY(0px)}
+}
+@keyframes leftright{
+    0%{transform: translateX(-500px)}
+    100%{transform: translateX(0px)}
 }
